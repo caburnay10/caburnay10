@@ -1,10 +1,14 @@
 import os
+from re import S
 from colorama import Fore
-
-
-
+import time
+time_1 = time.time()
+total_check = 0
 choice = input("ENTER 'Y' for Manage Switch Full IP Scan: ")
+
 while True:
+    time.sleep(1)
+    time_2 = time.time()
     if choice.upper() == 'Y':
         print(Fore.YELLOW  + "----------------------------------PING STARTED--------------------------------")
         ip_list = ['192.168.200.215', '192.168.200.217',
@@ -14,7 +18,7 @@ while True:
                    '192.168.200.212', '192.168.200.213',
                    '192.168.200.206', '192.168.200.207',
                    '192.168.200.214', '192.168.200.208',
-                   '192.168.200.105', '192.168.200.210',
+                   '192.168.200.105', '192.168.200.210', '192.168.200.216',
                    '192.168.200.218', '192.168.200.180',
                    '192.168.200.181', '192.168.200.182',
                    '192.168.200.183', '192.168.200.184',
@@ -32,7 +36,8 @@ while True:
                 'AVR A10-SERVER ROOM','AVR A11- REC BOOTH',
                 'BED FACULTY A2- SERVER ROOM','BED FACULTY A3-BED LIBRARY',
                 'BED FACULTY A12-CHAPEL CONTROL ROOM','BED LIBRARY A7- BED COMP LAB',
-                'BED LIBRARY A8- BED FACULTY','BED COMPLAB A9-BED LIBRARY','REGISTRAR-SERVER ROOM A16',
+                'BED LIBRARY A8- BED FACULTY','BED COMPLAB A9-BED LIBRARY',
+                'G7 BELTRAMI 3rd flr A14- SERVER ROOM','REGISTRAR-SERVER ROOM A16',
                 'IT OFFICE B1-SERVER ROOM','IT OFFICE B2-ELEX MAIN',
                 'IT OFFICE B3','IT OFFICE B4',
                 'SHS COMPLAB 1','ELEX C1-IT OFFICE',
@@ -61,10 +66,10 @@ while True:
                 unsuccess_count +=1
                 print(Fore.BLUE + name[i])
             i += 1
+        os.system('clear')
         print(Fore.YELLOW +'------------------------------------------------------------------------------')
-        print(Fore.YELLOW + 'Total ' + Fore.GREEN +'UP = '+ str(success_count))
-        print(Fore.YELLOW + 'Total ' +Fore.RED +'DOWN = '+ str(unsuccess_count))
-        # os.system('clear')
+        print(Fore.YELLOW + 'TOTAL ' + '          :  '+ Fore.GREEN +'UP = '+ str(success_count))
+        print(Fore.YELLOW + 'TOTAL ' +'          :  '+ Fore.RED +'DOWN = '+ str(unsuccess_count)) 
     else:
         print(Fore.YELLOW  + "----------------------------------PING STARTED--------------------------------")
         ip_list = ['192.168.200.215',
@@ -88,10 +93,16 @@ while True:
                 unsuccess_count +=1
                 print(Fore.BLUE + name[i])
             i += 1
+        os.system('clear')
         print(Fore.YELLOW +'------------------------------------------------------------------------------')
-        print(Fore.YELLOW + 'Total ' + Fore.GREEN +'UP = '+ str(success_count))
-        print(Fore.YELLOW + 'Total ' +Fore.RED +'DOWN = '+ str(unsuccess_count))
-        # os.system('clear')
+        print(Fore.YELLOW + 'TOTAL ' + '          :  '+ Fore.GREEN +'UP = '+ str(success_count))
+        print(Fore.YELLOW + 'TOTAL ' +'          :  '+ Fore.RED +'DOWN = '+ str(unsuccess_count)) 
+    total_check += 1
+    print(Fore.YELLOW + 'CHECKING_COUNT  :  ' + Fore.GREEN + str(total_check))
+    time_interval = time_2 - time_1
+    minutes = time_interval//60
+    hours = minutes//24
+    print(Fore.YELLOW + 'UPTIME     '+ '     :  '+ Fore.GREEN + str(int(hours))+Fore.YELLOW + ' HOURS')
 # import os
 # ip_list = ['192.168.200.105']
 # for ip in ip_list:
