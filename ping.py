@@ -1,5 +1,4 @@
 import os
-from re import S
 from colorama import Fore
 import time
 time_1 = time.time()
